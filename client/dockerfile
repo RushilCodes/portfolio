@@ -6,7 +6,7 @@ RUN bun install --frozen-lockfile
 COPY . .  
 RUN bun run build  
 
-FROM gcr.io/distroless/nodejs18:nonroot AS runner  
+FROM gcr.io/distroless/nodejs23:nonroot AS runner  
 WORKDIR /app  
 USER nodeuser  
 COPY --from=builder /app/dist ./dist  
