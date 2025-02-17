@@ -22,18 +22,18 @@ jobs:
       # ---- Build and Push Client Image ----
       - name: Build Client Image
         run: |
-          docker build -t ghcr.io/${{ github.repository }}/client:latest ./client
+          docker build -t ghcr.io/rushilcodes/portfolio/client:latest ./client
       - name: Push Client Image
         run: |
-          docker push ghcr.io/${{ github.repository }}/client:latest
+          docker push ghcr.io/rushilcodes/portfolio/client:latest
 
       # ---- Build and Push Server Image ----
       - name: Build Server Image
         run: |
-          docker build -t ghcr.io/${{ github.repository }}/server:latest ./server
+          docker build -t ghcr.io/rushilcodes/portfolio/server:latest ./server
       - name: Push Server Image
         run: |
-          docker push ghcr.io/${{ github.repository }}/server:latest
+          docker push ghcr.io/rushilcodes/portfolio/server:latest
 
       # ---- Install docker-slim ----
       - name: Install docker-slim
@@ -44,16 +44,16 @@ jobs:
       # ---- Slim Client Image ----
       - name: Slim Client Image
         run: |
-          docker-slim build --tag ghcr.io/${{ github.repository }}/client:slim ghcr.io/${{ github.repository }}/client:latest
+          docker-slim build --tag ghcr.io/rushilcodes/portfolio/client:slim ghcr.io/rushilcodes/portfolio/client:latest
       - name: Push Slim Client Image
         run: |
-          docker push ghcr.io/${{ github.repository }}/client:slim
+          docker push ghcr.io/rushilcodes/portfolio/client:slim
 
       # ---- Slim Server Image ----
       - name: Slim Server Image
         run: |
-          docker-slim build --tag ghcr.io/${{ github.repository }}/server:slim ghcr.io/${{ github.repository }}/server:latest
+          docker-slim build --tag ghcr.io/rushilcodes/portfolio/server:slim ghcr.io/rushilcodes/portfolio/server:latest
       - name: Push Slim Server Image
         run: |
-          docker push ghcr.io/${{ github.repository }}/server:slim
+          docker push ghcr.io/rushilcodes/portfolio/server:slim
 
