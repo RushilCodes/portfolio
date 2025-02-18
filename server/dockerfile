@@ -13,8 +13,7 @@ WORKDIR /app
 COPY --from=builder /app/dist ./dist  
 COPY --from=builder /app/package.json ./  
 COPY --from=builder /app/bun.lock ./  
-RUN npm install -g bun
 EXPOSE 3000  
-CMD ["bun", "run", "start"]  
+CMD ["npm", "run", "start"]  
 LABEL org.opencontainers.image.source=https://github.com/rushilcodes/portfolio
 LABEL org.opencontainers.image.description="Rushil's Portfolio"
