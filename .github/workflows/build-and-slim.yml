@@ -39,11 +39,7 @@ jobs:
       # ---- Install docker-slim ----
       - name: Install docker-slim
         run: |
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" CI=1
-          echo >> /home/runner/.bashrc
-          echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/runner/.bashrc
-          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-          brew install docker-slim
+          curl -sL https://raw.githubusercontent.com/slimtoolkit/slim/master/scripts/install-slim.sh | sudo -E bash -    
           echo "export PATH=/home/linuxbrew/.linuxbrew/bin:\$PATH" >> $GITHUB_ENV
           docker-slim --version
 
