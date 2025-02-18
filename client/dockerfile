@@ -14,7 +14,6 @@ WORKDIR /app
 COPY --from=builder /app/dist ./dist  
 COPY --from=builder /app/package.json ./  
 COPY --from=builder /app/bun.lock ./  
-RUN bun i --prod
 EXPOSE 3000  
 CMD ["bun", "run", "start"]  
 LABEL org.opencontainers.image.source=https://github.com/rushilcodes/portfolio
