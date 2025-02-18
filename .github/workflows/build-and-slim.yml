@@ -48,7 +48,7 @@ jobs:
       # ---- Slim Client Image ----
       - name: Slim Client Image
         run: |
-          docker-slim build --tag ghcr.io/rushilcodes/portfolio/client:slim ghcr.io/rushilcodes/portfolio/client:latest
+          slim build --tag ghcr.io/rushilcodes/portfolio/client:slim ghcr.io/rushilcodes/portfolio/client:latest
       - name: Push Slim Client Image
         run: |
           docker push ghcr.io/rushilcodes/portfolio/client:slim
@@ -56,7 +56,7 @@ jobs:
       # ---- Slim Server Image ----
       - name: Slim Server Image
         run: |
-          docker-slim build --tag ghcr.io/rushilcodes/portfolio/server:slim ghcr.io/rushilcodes/portfolio/server:latest
+          slim build --tag ghcr.io/rushilcodes/portfolio/server:slim ghcr.io/rushilcodes/portfolio/server:latest
       - name: Push Slim Server Image
         run: |
           docker push ghcr.io/rushilcodes/portfolio/server:slim
