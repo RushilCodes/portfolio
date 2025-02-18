@@ -39,13 +39,13 @@ jobs:
       # ---- Install docker-slim ----
       - name: Install docker-slim
         run: |
-          wget https://downloads.docker-slim.com/releases/1.39.0/dist_linux.tar.gz | tar xz
-          sudo mv docker-slim /usr/local/bin/docker-slim
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" CI=1
+          brew install slim
 
       # ---- Slim Client Image ----
       - name: Slim Client Image
         run: |
-          docker-slim build --tag ghcr.io/rushilcodes/portfolio/client:slim ghcr.io/rushilcodes/portfolio/client:latest
+          slim build --tag ghcr.io/rushilcodes/portfolio/client:slim ghcr.io/rushilcodes/portfolio/client:latest
       - name: Push Slim Client Image
         run: |
           docker push ghcr.io/rushilcodes/portfolio/client:slim
@@ -53,7 +53,7 @@ jobs:
       # ---- Slim Server Image ----
       - name: Slim Server Image
         run: |
-          docker-slim build --tag ghcr.io/rushilcodes/portfolio/server:slim ghcr.io/rushilcodes/portfolio/server:latest
+          slim build --tag ghcr.io/rushilcodes/portfolio/server:slim ghcr.io/rushilcodes/portfolio/server:latest
       - name: Push Slim Server Image
         run: |
           docker push ghcr.io/rushilcodes/portfolio/server:slim
