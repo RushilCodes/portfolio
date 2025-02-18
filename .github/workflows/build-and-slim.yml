@@ -40,6 +40,9 @@ jobs:
       - name: Install docker-slim
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" CI=1
+          echo >> /home/runner/.bashrc
+          echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/runner/.bashrc
+          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
           brew install slim
 
       # ---- Slim Client Image ----
