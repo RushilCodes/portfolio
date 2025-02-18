@@ -43,12 +43,12 @@ jobs:
           echo >> /home/runner/.bashrc
           echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/runner/.bashrc
           eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-          brew install slim
+          brew install docker-slim
 
       # ---- Slim Client Image ----
       - name: Slim Client Image
         run: |
-          slim build --tag ghcr.io/rushilcodes/portfolio/client:slim ghcr.io/rushilcodes/portfolio/client:latest
+          docker-slim build --tag ghcr.io/rushilcodes/portfolio/client:slim ghcr.io/rushilcodes/portfolio/client:latest
       - name: Push Slim Client Image
         run: |
           docker push ghcr.io/rushilcodes/portfolio/client:slim
@@ -56,7 +56,7 @@ jobs:
       # ---- Slim Server Image ----
       - name: Slim Server Image
         run: |
-          slim build --tag ghcr.io/rushilcodes/portfolio/server:slim ghcr.io/rushilcodes/portfolio/server:latest
+          docker-slim build --tag ghcr.io/rushilcodes/portfolio/server:slim ghcr.io/rushilcodes/portfolio/server:latest
       - name: Push Slim Server Image
         run: |
           docker push ghcr.io/rushilcodes/portfolio/server:slim
