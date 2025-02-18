@@ -39,7 +39,7 @@ jobs:
       # ---- Install docker-slim ----
       - name: Install docker-slim
         run: |
-          curl -sL https://downloads.docker-slim.com/releases/1.39.0/dist_linux.tar.gz | tar xz
+          wget https://downloads.docker-slim.com/releases/1.39.0/dist_linux.tar.gz | tar xz
           sudo mv docker-slim /usr/local/bin/docker-slim
 
       # ---- Slim Client Image ----
